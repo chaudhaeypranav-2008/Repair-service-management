@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Repair Service Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <h2>RepairCare</h2>
+      <div>
+        <a href="#admin" id="adminLink">Admin Dashboard</a>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="home">
+    <h1>Welcome to RepairCare</h1>
+    <p>Your trusted Repair Service Management Platform</p>
+    <p>Book a repair and track your device service easily.</p>
+    <button id="bookBtn">Book a Repair</button>
+    <button id="trackBtn">Track Repair</button>
+  </main>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Laptop Repair | Mobile Repair | Other Electronics</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We make device repair requests and tracking simple.</p>
+  </section>
+<section id="booking" class="feature-section" hidden>
+  <h2>Book a Repair</h2>
+  <p>Fill in your device details below.</p>
+
+  <form id="repairForm">
+    <label for="customerName">Customer Name</label>
+    <input type="text" id="customerName"
+           placeholder="Enter your name" required>
+
+    <label for="customerEmail">Email Address</label>
+    <input type="email" id="customerEmail"
+           placeholder="Enter your email" required>
+
+    <label for="deviceType">Device Type</label>
+    <select id="deviceType" required>
+      <option value="">Select Device</option>
+      <option value="Laptop">Laptop</option>
+      <option value="Mobile">Mobile</option>
+      <option value="Tablet">Tablet</option>
+      <option value="Other">Other Electronics</option>
+    </select>
+
+    <label for="problem">Describe the Problem</label>
+    <textarea id="problem" rows="4"
+              placeholder="Describe your issue"
+              required></textarea>
+
+    <button type="submit">Submit Repair Request</button>
+  </form>
+
+  <div id="bookingResult" class="result-box"
+       role="status" hidden></div>
+</section>
+
+<section id="tracking" class="feature-section" hidden>
+  <h2>Track Your Repair</h2>
+  <p>Enter your Ticket ID to check the status.</p>
+
+  <form id="trackingForm">
+    <label for="ticketId">Repair Ticket ID</label>
+    <input type="text" id="ticketId"
+           placeholder="Example: REP-123456"
+           required>
+    <button type="submit">Track Repair</button>
+  </form>
+
+  <div id="trackingResult" class="result-box"
+       role="status" hidden></div>
+</section>
+<!-- Admin Dashboard -->
+<section id="admin" class="admin-section" hidden>
+    <h2>Admin Dashboard</h2>
+    <p>Manage all repair service requests.</p>
+
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <h3>Total Repairs</h3>
+            <h2 id="totalRepairs">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>Pending</h3>
+            <h2 id="pendingRepairs">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>In Progress</h3>
+            <h2 id="progressRepairs">0</h2>
+        </div>
+
+        <div class="stat-card">
+            <h3>Completed</h3>
+            <h2 id="completedRepairs">0</h2>
+        </div>
+    </div>
+
+    <h2>Repair Requests</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticket ID</th>
+                    <th>Customer</th>
+                    <th>Device</th>
+                    <th>Technician</th>
+                    <th>Diagnosis</th>
+                    <th>Est. Cost (₹)</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="repairTableBody">
+            </tbody>
+        </table>
+    </div>
+</section>
+  <script src="script.js"></script>
+</body>
+</html>
